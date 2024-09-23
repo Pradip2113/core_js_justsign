@@ -11,6 +11,10 @@ def on_trash(self,action):
     for i in self.leads:
         frappe.set_value("Lead",i.lead, "status", "Interested")
         frappe.set_value("Lead", i.lead, "custom_make_read_only", 0)
+def after_insert(self,action):
+    for i in self.leads:
+        frappe.set_value("Lead",i.lead, "status", "Prospect")
+        frappe.set_value("Lead", i.lead, "custom_make_read_only", 1)
 
 
 

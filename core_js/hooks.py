@@ -127,7 +127,8 @@ doc_events = {
     },
     "Prospect":{
         "validate":"core_js.core_js.utils.prospect.validate",
-        "on_trash": "core_js.core_js.utils.prospect.on_trash"
+        "on_trash": "core_js.core_js.utils.prospect.on_trash",
+        "after_insert": "core_js.core_js.utils.prospect.after_insert"
     }
 }
 
