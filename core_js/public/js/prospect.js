@@ -26,3 +26,15 @@
 
 
 // })
+frappe.ui.form.on('Prospect', {
+    after_save:async function(frm){
+        if(frm.doc.leads){
+            await frappe.db.set_value("Prospect",frm.doc.name,"mobile_no",(frm.doc.leads)[0].mobile_no)
+            frm.doc.mobile_no = (frm.doc.leads)[0].mobile_no
+            await frm.refresh_field("mobile_no")
+            console.log("hello" + frm.doc.mobile_no)
+        }
+       await frm.save()
+       frm.reload_doc()
+    }
+})

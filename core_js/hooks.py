@@ -131,6 +131,9 @@ doc_events = {
         "validate":"core_js.core_js.utils.prospect.validate",
         "on_trash": "core_js.core_js.utils.prospect.on_trash",
         "after_insert": "core_js.core_js.utils.prospect.after_insert"
+    },
+    "Customer":{
+        "before_save":"core_js.core_js.utils.customer.add_contact_ref"
     }
 }
 
