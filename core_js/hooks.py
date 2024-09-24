@@ -32,7 +32,8 @@ app_license = "MIT"
 # doctype_js = {"doctype" : "public/js/doctype.js"}
 doctype_js = {"Opportunity" : "public/js/opportunity.js",
               "Lead":"public/js/lead.js",
-              "Prospect":"public/js/prospect.js"}
+              "Prospect":"public/js/prospect.js",
+              "Customer":"public/js/customer.js"}
 
 doctype_list_js = {"Prospect" : "public/js/prospect_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -108,6 +109,7 @@ jinja = {
 
 override_doctype_class = {
 	"Lead": "core_js.core_js.utils.contact_updation._Lead",
+    
 }
 
 # Document Events

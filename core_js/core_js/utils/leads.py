@@ -3,7 +3,7 @@ from frappe import _
 from frappe.desk.form import assign_to
 
 def validate(self,action):
-
+	# frappe.msgprint(str(self.address_html))
 	if self.status =="Converted" or self.status == "Prospect":
 		self.custom_make_read_only = 1
 

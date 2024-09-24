@@ -1,6 +1,7 @@
 import frappe
 
 def validate(self,action):
+    # frappe.throw("prospect")
     if self.custom_status =="Converted":
         self.custom_make_read_only = 1
 
@@ -12,9 +13,10 @@ def on_trash(self,action):
         frappe.set_value("Lead",i.lead, "status", "Interested")
         frappe.set_value("Lead", i.lead, "custom_make_read_only", 0)
 def after_insert(self,action):
+   
     for i in self.leads:
         frappe.set_value("Lead",i.lead, "status", "Prospect")
-        frappe.set_value("Lead", i.lead, "custom_make_read_only", 1)
+        # frappe.set_value("Lead", i.lead, "custom_make_read_only", 1)
 
 
 
