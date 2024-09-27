@@ -134,7 +134,8 @@ doc_events = {
     },
     "Customer":{
         "before_save":"core_js.core_js.utils.customer.add_contact_ref"
-    }
+    },
+    
 }
 
 # Scheduled Tasks

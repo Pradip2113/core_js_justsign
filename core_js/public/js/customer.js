@@ -9,3 +9,13 @@ frappe.ui.form.on('Customer', {
     
 });
 
+// frappe.ui.form.on('Customer', {
+//     before_save:async function(frm) {
+//         await frappe.call({
+//             method:"core_js.core_js.utils.customer.beforesaveevent",
+//             args: { doc: frm.doc },
+//         })
+//     }
+    
+// });
+

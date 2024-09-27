@@ -4,6 +4,8 @@ def on_trash(doc,event):
     if doc.custom_from_prospect:
         frappe.set_value("Prospect", doc.custom_from_prospect, "status", "New")
         frappe.set_value("Prospect", doc.custom_from_prospect, "custom_make_read_only", 0)
+
+
         
 @frappe.whitelist()
 def add_cust_to_contact(doc):
@@ -39,5 +41,42 @@ def add_cust_to_contact(doc):
 def add_contact_ref(doc,event):
     if doc.mobile_no:
         contact_doc_id = frappe.get_value("Contact",{"mobile_no":doc.mobile_no},"name")
-        doc.customer_primary_contact = contact_doc_id if contact_doc_id else frappe.throw("Contact for {doc.mobile_no} does not exist")
+        doc.customer_primary_contact = contact_doc_id if contact_doc_id else frappe.throw(f"Contact for {doc.mobile_no} does not exist")
+    # Change Lead status to Converted
+    if doc.custom_from_prospect:
+        lead_id = frappe.get_value("Prospect Lead",{"parent":doc.custom_from_prospect},"lead")
+        suspect_id = frappe.get_value("Prospect",{"name":doc.custom_from_prospect},"custom_suspect_id")
+        if suspect_id:
+            doc.custom_from_suspect = suspect_id
+        if lead_id:
+            doc.lead_name = lead_id
+            lead_doc = frappe.get_doc("Lead",lead_id)
+            lead_doc.status = "Converted"
+            lead_doc.save()
+            
+            
+   
         
+#  @frappe.whitelist()
+# def beforesaveevent(doc):       
+# if isinstance(doc, str):
+#     # Fetch the full document using get_doc
+#     doc = frappe.get_doc("Customer", doc)
+
+# # Ensure we are working with a dictionary-style doc object
+# custom_from_prospect = doc.get("custom_from_prospect")
+
+# if custom_from_prospect:
+#     # Fetch the lead using frappe.get_value
+#     set_lead_id = frappe.get_value("Prospect Lead", {"parent": custom_from_prospect}, "lead")
+    
+#     if set_lead_id:
+#         # Set the lead_name field directly since get_value returns the value
+#         doc.lead_name = set_lead_id
+#     else:
+#         frappe.throw("Lead not found for the given custom_from_prospect.")
+# else:
+#     frappe.throw("custom_from_prospect is missing from the document.")
+
+# # Optionally return the modified document
+# return doc
