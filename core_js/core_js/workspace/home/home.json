@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"sYS89TUj5m\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"-yPOnzEwYm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"bymyPEb1Fh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"2ClVSZarsD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier\",\"col\":3}},{\"id\":\"7E1h_rmwEz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":3}},{\"id\":\"az4M7xs4Vj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leaderboard\",\"col\":3}},{\"id\":\"xnCCWdk6Mf\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Suspect</span>\",\"col\":3}},{\"id\":\"E46qvcesb6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"Bdic-qpgGG\",\"type\":\"card\",\"data\":{\"card_name\":\"Accounting\",\"col\":4}},{\"id\":\"MSccR83kJW\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock\",\"col\":4}},{\"id\":\"Rmrpx3KUCB\",\"type\":\"card\",\"data\":{\"card_name\":\"CRM\",\"col\":4}},{\"id\":\"wUCsdTaUrB\",\"type\":\"card\",\"data\":{\"card_name\":\"Data Import and Settings\",\"col\":4}}]",
+ "content": "[{\"id\":\"sYS89TUj5m\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Your Shortcuts</b></span>\",\"col\":12}},{\"id\":\"-yPOnzEwYm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Item\",\"col\":3}},{\"id\":\"bymyPEb1Fh\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Customer\",\"col\":3}},{\"id\":\"2ClVSZarsD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Supplier\",\"col\":3}},{\"id\":\"7E1h_rmwEz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sales Invoice\",\"col\":3}},{\"id\":\"az4M7xs4Vj\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leaderboard\",\"col\":3}},{\"id\":\"xnCCWdk6Mf\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h5\\\">Suspect</span>\",\"col\":3}},{\"id\":\"SYNPivjwso\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"End User Lead\",\"col\":3}},{\"id\":\"yzSpP8leYP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"End User Opportunity\",\"col\":3}},{\"id\":\"E46qvcesb6\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Reports &amp; Masters</b></span>\",\"col\":12}},{\"id\":\"Bdic-qpgGG\",\"type\":\"card\",\"data\":{\"card_name\":\"Accounting\",\"col\":4}},{\"id\":\"MSccR83kJW\",\"type\":\"card\",\"data\":{\"card_name\":\"Stock\",\"col\":4}},{\"id\":\"Rmrpx3KUCB\",\"type\":\"card\",\"data\":{\"card_name\":\"CRM\",\"col\":4}},{\"id\":\"wUCsdTaUrB\",\"type\":\"card\",\"data\":{\"card_name\":\"Data Import and Settings\",\"col\":4}}]",
  "creation": "2020-01-23 13:46:38.833076",
  "custom_blocks": [],
  "docstatus": 0,
@@ -242,7 +242,7 @@
    "type": "Link"
   }
  ],
- "modified": "2024-02-22 16:18:14.404771",
+ "modified": "2024-10-21 15:52:21.966538",
  "modified_by": "Administrator",
  "module": "Core Js",
  "name": "Home",
@@ -256,6 +256,13 @@
  "sequence_id": 1.0,
  "shortcuts": [
   {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "End User Lead",
+   "link_to": "End User Lead",
+   "type": "Dashboard"
+  },
+  {
    "label": "Item",
    "link_to": "Item",
    "type": "DocType"
@@ -264,6 +271,13 @@
    "label": "Customer",
    "link_to": "Customer",
    "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "End User Opportunity",
+   "link_to": "End User Opportunity",
+   "type": "Dashboard"
   },
   {
    "label": "Supplier",

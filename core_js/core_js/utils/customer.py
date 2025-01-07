@@ -2,7 +2,7 @@ import frappe
 import json
 def on_trash(doc,event):
     if doc.custom_from_prospect:
-        frappe.set_value("Prospect", doc.custom_from_prospect, "status", "New")
+        frappe.set_value("Prospect", doc.custom_from_prospect, "custom_status", "New")
         frappe.set_value("Prospect", doc.custom_from_prospect, "custom_make_read_only", 0)
 
 
@@ -10,6 +10,8 @@ def on_trash(doc,event):
 @frappe.whitelist()
 def add_cust_to_contact(doc):
     doc = json.loads(doc)
+    if doc.get("custom_from_prospect"):
+        frappe.set_value("Prospect", doc["custom_from_prospect"], "custom_status", "Converted")
     # frappe.throw(f"{doc['custom_from_prospect']}")
     # frappe.msgprint(f"{doc['custom_from_prospect']}")
     if doc['custom_from_prospect']:
