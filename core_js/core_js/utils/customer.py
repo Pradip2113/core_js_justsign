@@ -14,7 +14,7 @@ def add_cust_to_contact(doc):
         frappe.set_value("Prospect", doc["custom_from_prospect"], "custom_status", "Converted")
     # frappe.throw(f"{doc['custom_from_prospect']}")
     # frappe.msgprint(f"{doc['custom_from_prospect']}")
-    if doc['custom_from_prospect']:
+    if doc.get("custom_from_prospect"):
         # is_contact_exists = frappe.db.exists("Contact",{"mobile_no":doc.custom_phone_no})
         # if is_contact_exists:
         #     frappe.throw(f"Mobile no already exists in Contact - <b>{is_contact_exists}</b>")
@@ -27,18 +27,19 @@ def add_cust_to_contact(doc):
         })
         contact_doc.save()
     else:
-        is_contact_exists = frappe.db.exists("Contact",{"mobile_no":doc.custom_phone_no})
-        if is_contact_exists and not doc.custom_override_contact:
-            frappe.throw(f"Mobile no already exists in Contact - <b>{is_contact_exists}</b>")
-            # contact_doc = frappe.get_doc("Contact",is_contact_exists)
-            # if not doc.custom_override_contact:
-                
-            #     override_field = contact_doc.get("links")
-            #     override_field[0].link_name = doc.name
-            #     contact_doc.insert()
-            #     # frappe.throw(str(override_field[0]))
-            # else:  
-            #     frappe.throw(str(is_contact_exists))
+        if doc.get("custom_phone_no"):
+            is_contact_exists = frappe.db.exists("Contact",{"mobile_no":doc.get("custom_phone_no")})
+            if is_contact_exists and not doc.custom_override_contact:
+                frappe.throw(f"Mobile no already exists in Contact - <b>{is_contact_exists}</b>")
+                # contact_doc = frappe.get_doc("Contact",is_contact_exists)
+                # if not doc.custom_override_contact:
+                    
+                #     override_field = contact_doc.get("links")
+                #     override_field[0].link_name = doc.name
+                #     contact_doc.insert()
+                #     # frappe.throw(str(override_field[0]))
+                # else:  
+                #     frappe.throw(str(is_contact_exists))
 @frappe.whitelist()
 def add_contact_ref(doc,event):
     if doc.mobile_no:
